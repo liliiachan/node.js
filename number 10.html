@@ -1,0 +1,83 @@
+<HTML>
+	<HEAD>
+		<title>lab 10</title>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <meta charset="utf-8">
+
+    <link rel="icon" type="image/vnd.microsoft.icon" href="../img/ico.ico">
+
+		<script language="JavaScript">
+			function сount() {
+				document.querySelector('.result1').textContent = "К-сть слів: "+form1.text.value.split(" ").length;
+			}
+
+			function changeWord() {
+				var fulltext = form2.fulltext.value.split(" "),
+				oldword = form2.word.value,
+				newword = form2.newword.value;
+
+				for(var i=0;i<fulltext.length;i++) {
+					fulltext[i] = (fulltext[i] == oldword) ? newword : fulltext[i];
+				}
+
+				form2.fulltext.value = fulltext.join(" ");
+			}
+
+			function changeSpaces() {
+				var fulltext = form3.fulltext.value.split(" ");
+
+				for(var i=0;i<fulltext.length;) {
+					if(fulltext[i] == "") fulltext.splice(i,1);
+					else i++;
+				}
+
+				form3.fulltext.value = fulltext.join(" ");
+			}
+
+
+		</script>
+	</HEAD>
+	<BODY>
+
+		<div class="body_lab" align="center">
+        <h1>Лабораторна робота №10</h1>
+
+    <hr>
+
+<!--Завдання 1-->
+		<p> <h2>Завдання 1 </h2></p>
+		<p>  Слова в заданому тексті розділюються пробілами. Написати програму обчислення кількості слів у тексті.   </p>
+		<form name="form1">
+			<p><input type="text" name="text" >
+				<input type="button" value="Вивести кількість слів в тексті" onclick="сount()"></p>
+				<p class="result1">Кількість слів:</p>
+			</form>
+
+<!--Завдання 2-->
+			<p> <h2>Завдання 2 </h2></p>
+			<p>  Написати програму, в якій всі слова K замінюються словом L, де K і L- задані слова, можливо різної довжини.   </p>
+			<form name="form2">
+				<p>Введіть текст: <input type="text" name="fulltext" ></p>
+				<p>
+					Введіть старе слово: <input type="text" name="word"><br>
+					Введыть нове слово: <input type="text" name="newword" ><br>
+					<input type="button" value="Замінити" onclick="changeWord()">
+				</p>
+			</form>
+<!--Завдання 3-->
+			<p> <h2>Завдання 3 </h2></p>
+			<p>   Написати програму, яка замінює всі підряд ідучі пробіли на один.   </p>
+			<form name="form3">
+        <p>Введіть текст: <input type="text" name="fulltext" >
+            <input type="button" value="Замінити пробіли" onclick="changeSpaces()">
+        </p>
+    </form>
+
+<hr>
+    </div>
+
+
+
+    </div>
+		</BODY>
+	</HTML>
